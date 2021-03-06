@@ -79,9 +79,9 @@ export default {
     flex: 5 1 auto;
 
     &__symbol {
-      @apply tw-py-0 tw-px-4;
       @apply tw-rounded-1/2;
 
+      padding: 3px 8px;
       background-color: #8d96a2;
       color: white;
     }

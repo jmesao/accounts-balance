@@ -3,7 +3,10 @@
     <header-container>
       <div>Home / <span class="tw-body-strong">Accounts</span></div>
     </header-container>
-    <accounts-balance-table :items="accounts" />
+    <accounts-balance-table
+      :items="accounts"
+      @row-click="showAccountDetails"
+    />
   </div>
 </template>
 <script>
@@ -30,6 +33,11 @@ export default {
     } catch (err) {
       console.log(err);
     }
+  },
+  methods: {
+    showAccountDetails(event) {
+      console.log(event.data[0].id);
+    },
   },
 };
 </script>

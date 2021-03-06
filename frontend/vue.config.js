@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  transpileDependencies: ['ky', 'map-obj', '@ebury/chameleon-components'],
+  transpileDependencies: ['@ebury/chameleon-components'],
   pluginOptions: {
     lintStyleOnBuild: true,
     stylelint: {

@@ -3,7 +3,11 @@
     class="tw-p-16"
     :data="tableData"
     :columns="columns"
+    @row-click="(event) => $emit('row-click', event)"
   >
+    <template v-slot:col1="{ content }">
+      <div>{{ content.name }}</div>
+    </template>
     <template v-slot:col4="{ content }">
       <div>{{ content.btcBalance }}</div>
       <div>{{ content.usdBalance }}</div>
@@ -60,7 +64,10 @@ export default {
       let accounts = [];
       if (this.items.length) {
         accounts = this.items.map(item => [
-          item.name,
+          {
+            id: item.id,
+            name: item.name,
+          },
           item.category,
           item.tags,
           {
