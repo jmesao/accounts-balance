@@ -1,0 +1,6 @@
+dist
+coverage
+/tests/unit/coverage/
+!.stylelintrc.js
+!.eslintrc.js
+!.eslintrc.*.js
