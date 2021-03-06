@@ -15,7 +15,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Tests
-/coverage
+coverage
 /.nyc_output
 
 # Editor directories and files
