@@ -4,7 +4,7 @@
       <span class="top-bar__menu__icon material-icons">menu</span>
     </div>
     <div class="top-bar__balance">
-      <span class="top-bar__balance__symbol">฿</span> : $ {{rate}}
+      <span class="top-bar__balance__symbol">฿</span> : $ {{ rate }}
     </div>
     <div class="top-bar__notification">
       <span class="material-icons top-bar__notification__icon">notifications_none</span>
@@ -17,13 +17,14 @@ import store from '../../store';
 import { getRate } from '../../services/rate';
 
 export default {
-  name: 'top-bar',
+  name: 'TopBar',
   data() {
     return {
       rate: '-',
     };
   },
   async created() {
+    this.initializeRateSockets();
     try {
       const { data } = await getRate();
       this.rate = data;
@@ -31,6 +32,25 @@ export default {
     } catch (err) {
       console.log(err);
     }
+  },
+  beforeDestroy() {
+    global.clearInterval(this.rateInterval);
+    this.sockets.unsubscribe('msgToClientForRate');
+  },
+  methods: {
+    initializeRateSockets() {
+      this.sockets.subscribe('msgToClientForRate', (newRate) => {
+        this.updateRate(newRate);
+      });
+      this.rateInterval = global.setInterval(() => {
+        this.$socket.emit('msgToServerForRate');
+      }, 30000);
+    },
+
+    updateRate(rate) {
+      this.rate = rate;
+      store.commit('setRate', this.rate);
+    },
   },
 };
 </script>

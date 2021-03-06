@@ -5,12 +5,12 @@
     :columns="columns"
   >
     <template v-slot:col4="{ content }">
-      <div>{{content.btcBalance}}</div>
-      <div>{{content.usdBalance}}</div>
+      <div>{{ content.btcBalance }}</div>
+      <div>{{ content.usdBalance }}</div>
     </template>
     <template v-slot:col5="{ content }">
-      <div>{{content.btcAvailableBalance}}</div>
-      <div>{{content.usdAvailableBalance}}</div>
+      <div>{{ content.btcAvailableBalance }}</div>
+      <div>{{ content.usdAvailableBalance }}</div>
     </template>
   </ec-table>
 </template>
@@ -18,12 +18,20 @@
 <script>
 import { EcTable } from '@ebury/chameleon-components';
 import { mapState } from 'vuex';
-import { getAccounts } from '../../../../services/accounts';
 
 export default {
   name: 'AccountsBalanceTable',
   components: {
     EcTable,
+  },
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    totalItems: {
+      type: Number,
+    },
   },
   data() {
     return {
@@ -42,7 +50,6 @@ export default {
           type: 'currency',
         },
       ],
-      accounts: [],
     };
   },
   computed: {
@@ -51,31 +58,23 @@ export default {
     }),
     tableData() {
       let accounts = [];
-      if (this.accounts.length) {
-        accounts = this.accounts.map(account => [
-          account.name,
-          account.category,
-          account.tags,
+      if (this.items.length) {
+        accounts = this.items.map(item => [
+          item.name,
+          item.category,
+          item.tags,
           {
-            btcBalance: `${account.balance} BTC`,
-            usdBalance: `$${account.balance * this.rate}`,
+            btcBalance: `${item.balance} BTC`,
+            usdBalance: `$${item.balance * this.rate}`,
           },
           {
-            btcAvailableBalance: `${account.available_balance} BTC`,
-            usdAvailableBalance: `$${account.available_balance * this.rate}`,
+            btcAvailableBalance: `${item.available_balance} BTC`,
+            usdAvailableBalance: `$${item.available_balance * this.rate}`,
           },
         ]);
       }
       return accounts;
     },
-  },
-  async created() {
-    try {
-      const { data } = await getAccounts();
-      this.accounts = data;
-    } catch (err) {
-      console.log(err);
-    }
   },
 };
 </script>
