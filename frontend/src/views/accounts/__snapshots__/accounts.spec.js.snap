@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountsView should render correctly 1`] = `
+<div>
+  <header-container-stub>
+    <div>
+      Home / 
+      <span
+        class="tw-body-strong"
+      >
+        Accounts
+      </span>
+    </div>
+  </header-container-stub>
+</div>
+`;
