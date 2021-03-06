@@ -5,8 +5,12 @@ function createStore(vueInstance) {
   vueInstance.use(Vuex);
   const store = new Vuex.Store({
     state: {
+      rate: 0,
     },
     mutations: {
+      setRate(state, value) {
+        state.rate = value;
+      },
     },
     actions: {
     },

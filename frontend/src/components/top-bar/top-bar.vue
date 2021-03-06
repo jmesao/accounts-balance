@@ -4,7 +4,7 @@
       <span class="top-bar__menu__icon material-icons">menu</span>
     </div>
     <div class="top-bar__balance">
-      <span class="top-bar__balance__symbol">฿</span> : $ 11,749.42
+      <span class="top-bar__balance__symbol">฿</span> : $ {{rate}}
     </div>
     <div class="top-bar__notification">
       <span class="material-icons top-bar__notification__icon">notifications_none</span>
@@ -13,8 +13,25 @@
 </template>
 
 <script>
+import store from '../../store';
+import { getRate } from '../../services/rate';
+
 export default {
   name: 'top-bar',
+  data() {
+    return {
+      rate: '-',
+    };
+  },
+  async created() {
+    try {
+      const { data } = await getRate();
+      this.rate = data;
+      store.commit('setRate', this.rate);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
 </script>
 

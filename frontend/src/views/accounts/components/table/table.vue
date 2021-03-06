@@ -17,6 +17,7 @@
 
 <script>
 import { EcTable } from '@ebury/chameleon-components';
+import { mapState } from 'vuex';
 import { getAccounts } from '../../../../services/accounts';
 
 export default {
@@ -45,6 +46,9 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      rate: state => state.rate,
+    }),
     tableData() {
       let accounts = [];
       if (this.accounts.length) {
@@ -54,11 +58,11 @@ export default {
           account.tags,
           {
             btcBalance: `${account.balance} BTC`,
-            usdBalance: '$0.00',
+            usdBalance: `$${account.balance * this.rate}`,
           },
           {
             btcAvailableBalance: `${account.available_balance} BTC`,
-            usdAvailableBalance: '$0.00',
+            usdAvailableBalance: `$${account.available_balance * this.rate}`,
           },
         ]);
       }
