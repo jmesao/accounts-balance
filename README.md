@@ -2,6 +2,7 @@
 
 This repository is a test to put into practice Vue 2 in the Frontend and NestJS in the backend.
 It has been implemented with node v12.18.0 (npm v6.14.4) but at first it should work from v12.0.0. (npm v6.9.0) or higher.
+It has been tested on Chrome and Firefox browsers.
 
 # Frontend
 

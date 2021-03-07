@@ -28,6 +28,7 @@ export class AccountsService {
     for (let i = 0; i < 5; i++) {
       statements.push({
         id: id,
+        // TODO.- Generate Date instance and format it on the frontend based on the locale
         confirmed_date: '02/11/2020 14:45',
         order_id: generateRandomOrderId(),
         order_code: generateRandomOrderCode(),
