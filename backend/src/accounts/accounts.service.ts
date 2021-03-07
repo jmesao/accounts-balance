@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 
 import { Account, AccountDetails } from '../interfaces/Account'
 
-import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode } from '../helpers/random-characters'
+import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode, generateRandomIntegerBetweenMinAndMax } from '../helpers/random-characters'
 
 @Injectable()
 export class AccountsService {
 
-  getAccounts(): Account[] {
+  getAccounts(maxAccounts=14): Account[] {
     let accounts = [];
-    for (let i = 0; i <15; i++) {
+    for (let i = 0; i < maxAccounts; i++) {
       accounts.push({
         id: i,
         name: 'Testing account_' + i,

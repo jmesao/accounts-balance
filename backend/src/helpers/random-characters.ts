@@ -12,3 +12,7 @@ export function generateRandomOrderCode(): string {
   const randomOrderCode = Math.floor(Math.random() * Math.floor(Object.keys(ORDER_CODE_TYPE_LABELS).length))
   return ORDER_CODE_TYPE_LABELS[randomOrderCode].toUpperCase();
 }
+
+export function generateRandomIntegerBetweenMinAndMax(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}

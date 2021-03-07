@@ -20,6 +20,7 @@ export class RateGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
   afterInit(server: Server) {
     this.logger.log('Initialized rate gateway.');
     global.setInterval(() => {
+      // Emit an event each 30 seconds updating the rate
       this.server.emit('msgToClientForRate', this.rateService.getRate());
     }, 30000);
   }
