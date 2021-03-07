@@ -16,7 +16,9 @@ describe('RateController', () => {
 
   describe('getRate', () => {
     it('should return the rate', () => {
-      expect(rateController.getRate()).toBeDefined();
+      const rate = rateController.getRate();
+      expect(rate).toBeDefined();
+      expect(typeof rate).toBe('number');
     });
   });
 });

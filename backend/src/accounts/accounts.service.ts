@@ -7,7 +7,7 @@ import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode, 
 @Injectable()
 export class AccountsService {
 
-  getAccounts(maxAccounts=14): Account[] {
+  getAccounts(maxAccounts=15): Account[] {
     let accounts = [];
     for (let i = 0; i < maxAccounts; i++) {
       accounts.push({
@@ -25,7 +25,7 @@ export class AccountsService {
 
   getAccountById(id): AccountDetails[] {
     let statements = [];
-    for (let i = 0; i <5; i++) {
+    for (let i = 0; i < 5; i++) {
       statements.push({
         id: id,
         confirmed_date: '02/11/2020 14:45',

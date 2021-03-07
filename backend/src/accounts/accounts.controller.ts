@@ -12,7 +12,7 @@ export class AccountsController {
   }
 
   @Get(':accountId')
-  getTask(@Param('accountId') accountId) {
+  getAccountDetailsById(@Param('accountId') accountId) {
     return this.accountsService.getAccountById(accountId);
   }
 }
