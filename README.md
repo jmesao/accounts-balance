@@ -13,7 +13,7 @@ Configuration:
 
 ## Feautures
 - Frontend with Vue 2
-- Backend with NestJS (Not done yet)
+- Backend with NestJS
 - Chameleon with Tailwind for reusable component and styling. Chameleon components is a vue.js components library.
 You can check the current status of the library [here](https://docs.google.com/spreadsheets/d/101NhAtDJ_6YLybdmWnhTvfem9yCtCeHJK5LtCZcX6Rk/edit#gid=0).
 Also, check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
