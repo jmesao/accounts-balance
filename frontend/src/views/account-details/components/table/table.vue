@@ -9,16 +9,12 @@
         <div>{{ content.confirmedDate }}</div>
       </template>
       <template v-slot:col6="{ content }">
-        <div>
-          <div>{{ content.btcCredit }}</div>
-          <div>{{ content.usdCredit }}</div>
-        </div>
+        <div>{{ content.btcCredit }}</div>
+        <div>{{ content.usdCredit }}</div>
       </template>
       <template v-slot:col7="{ content }">
-        <div>
-          <div>{{ content.btcBalance }}</div>
-          <div>{{ content.usdBalance }}</div>
-        </div>
+        <div>{{ content.btcBalance }}</div>
+        <div>{{ content.usdBalance }}</div>
       </template>
     </ec-table>
   </div>

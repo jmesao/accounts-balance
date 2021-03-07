@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBar should render properly without rate 1`] = `
+<div
+  class="top-bar"
+>
+  <div
+    class="top-bar__menu"
+  >
+    <span
+      class="top-bar__menu__icon material-icons"
+    >
+      menu
+    </span>
+  </div>
+   
+  <div
+    class="top-bar__balance"
+  >
+    <span
+      class="top-bar__balance__symbol"
+    >
+      ฿
+    </span>
+     : $ -
+  
+  </div>
+   
+  <div
+    class="top-bar__notification"
+  >
+    <span
+      class="material-icons top-bar__notification__icon"
+    >
+      notifications_none
+    </span>
+  </div>
+</div>
+`;

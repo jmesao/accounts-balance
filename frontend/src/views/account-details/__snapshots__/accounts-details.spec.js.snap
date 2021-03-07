@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountDetailsView should render without account nor items on the account statements table 1`] = `
+<div>
+  <header-container-stub
+    title="Account detail"
+  >
+    <div>
+      Home / Accounts / 
+      <span
+        class="tw-body-strong"
+      >
+        Details
+      </span>
+    </div>
+  </header-container-stub>
+   
+  <div
+    class="card-container ec-card"
+  >
+    <div>
+      <div
+        class="tw-h4"
+      >
+        Dummy Test Name
+      </div>
+       
+      <div
+        class="tw-small-text"
+      >
+        Treasury account
+      </div>
+    </div>
+  </div>
+   
+  <account-statements-table-stub
+    items=""
+  />
+</div>
+`;

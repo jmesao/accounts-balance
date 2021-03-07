@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContainer should render properly 1`] = `
+<div
+  class="header-container"
+>
+  <div
+    class="tw-grid"
+  >
+    <div
+      class="tw-col-full"
+    >
+      <h2>
+        Test
+      </h2>
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`HeaderContainer should render properly with slot 1`] = `
+<div
+  class="header-container"
+>
+  <div
+    class="tw-grid"
+  >
+    <div
+      class="tw-col-full"
+    >
+      <h2>
+        Test
+      </h2>
+       
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+</div>
+`;
