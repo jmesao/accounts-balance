@@ -32,13 +32,6 @@ describe('TopBar', () => {
     });
   }
 
-  it('should render properly with rate', () => {
-    const wrapper = mountTopBar({
-      rate: 5000,
-    });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should render properly without rate', () => {
     const wrapper = mountTopBar({});
     expect(wrapper.element).toMatchSnapshot();
