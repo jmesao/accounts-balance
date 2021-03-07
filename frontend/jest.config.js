@@ -11,7 +11,7 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    '/node_modules/',
+    'node_modules/(?!(@ebury)/)',
   ],
   snapshotSerializers: [
     'jest-serializer-vue',
@@ -30,7 +30,6 @@ module.exports = {
     '!src/main.js',
     '!src/app.vue',
     '!src/**/index.js',
-    '!src/icons/**',
     '!src/assets/**',
   ],
   coverageThreshold: {

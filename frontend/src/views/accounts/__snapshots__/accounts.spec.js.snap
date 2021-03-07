@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountsView should render correctly 1`] = `
+exports[`AccountsView should render header without items on the accounts balance table 1`] = `
 <div>
-  <header-container-stub>
+  <header-container-stub
+    title="Accounts"
+  >
     <div>
       Home / 
       <span
@@ -12,5 +14,9 @@ exports[`AccountsView should render correctly 1`] = `
       </span>
     </div>
   </header-container-stub>
+   
+  <accounts-balance-table-stub
+    items=""
+  />
 </div>
 `;

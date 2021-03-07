@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = new Router({
-  mode: process.env.NODE_ENV !== 'test' ? 'history' : 'abstract',
+  mode: 'history',
   routes,
 });
 

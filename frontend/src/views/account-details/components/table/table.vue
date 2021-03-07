@@ -1,6 +1,7 @@
 <template>
-  <ec-table
-    class="tw-p-16"
+  <div class="tw-p-16">
+    <div class="tw-h3 tw-mb-24">Statement</div>
+    <ec-table
     :data="items"
     :columns="columns"
   >
@@ -20,6 +21,7 @@
       </div>
     </template>
   </ec-table>
+  </div>
 </template>
 
 <script>
