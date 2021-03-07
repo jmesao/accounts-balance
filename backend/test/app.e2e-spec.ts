@@ -15,10 +15,21 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/accounts (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+      .get('/accounts')
+      .expect(200);
+  });
+
+  it('/accounts/:accountId (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/accounts/1')
+      .expect(200);
+  });
+
+  it('/rate (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/rate')
+      .expect(200);
   });
 });
