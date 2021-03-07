@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { Account, AccountDetails } from '../interfaces/Account'
 
-import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode, generateRandomIntegerBetweenMinAndMax } from '../helpers/random-characters'
+import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode } from '../helpers/random-characters'
 
 @Injectable()
 export class AccountsService {
