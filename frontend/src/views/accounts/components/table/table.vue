@@ -1,7 +1,7 @@
 <template>
   <ec-table
     class="tw-p-16"
-    :data="tableData"
+    :data="items"
     :columns="columns"
     @row-click="(event) => $emit('row-click', event)"
   >
@@ -9,19 +9,23 @@
       <div>{{ content.name }}</div>
     </template>
     <template v-slot:col4="{ content }">
-      <div>{{ content.btcBalance }}</div>
-      <div>{{ content.usdBalance }}</div>
+      <div :class="getClassesForFlash(content, 'balanceFlash')">
+        <div>{{ content.btcBalance }}</div>
+        <div>{{ content.usdBalance }}</div>
+      </div>
     </template>
     <template v-slot:col5="{ content }">
-      <div>{{ content.btcAvailableBalance }}</div>
-      <div>{{ content.usdAvailableBalance }}</div>
+      <div :class="getClassesForFlash(content, 'availableBalanceFlash')">
+        <div>{{ content.btcAvailableBalance }}</div>
+        <div>{{ content.usdAvailableBalance }}</div>
+      </div>
     </template>
   </ec-table>
 </template>
 
 <script>
 import { EcTable } from '@ebury/chameleon-components';
-import { mapState } from 'vuex';
+import * as FlashBalanceType from '../../../../enums/flash-balance-type';
 
 export default {
   name: 'AccountsBalanceTable',
@@ -32,9 +36,6 @@ export default {
     items: {
       type: Array,
       default: () => [],
-    },
-    totalItems: {
-      type: Number,
     },
   },
   data() {
@@ -56,31 +57,16 @@ export default {
       ],
     };
   },
-  computed: {
-    ...mapState({
-      rate: state => state.rate,
-    }),
-    tableData() {
-      let accounts = [];
-      if (this.items.length) {
-        accounts = this.items.map(item => [
-          {
-            id: item.id,
-            name: item.name,
-          },
-          item.category,
-          item.tags,
-          {
-            btcBalance: `${item.balance} BTC`,
-            usdBalance: `$${item.balance * this.rate}`,
-          },
-          {
-            btcAvailableBalance: `${item.available_balance} BTC`,
-            usdAvailableBalance: `$${item.available_balance * this.rate}`,
-          },
-        ]);
+  methods: {
+    getClassesForFlash(item, propWhereApplyFlash) {
+      // TODO.- Apply a class with transition to look like a flash
+      let colorClass = '';
+      if (item[propWhereApplyFlash] === FlashBalanceType.RED_FLASH_BALANCE) {
+        colorClass = 'tw-bg-error-light';
+      } else if (item[propWhereApplyFlash] === FlashBalanceType.GREEN_FLASH_BALANCE) {
+        colorClass = 'tw-bg-success-light';
       }
-      return accounts;
+      return colorClass;
     },
   },
 };

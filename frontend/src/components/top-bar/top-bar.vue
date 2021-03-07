@@ -24,7 +24,7 @@ export default {
     };
   },
   async created() {
-    this.listenEventsFromServer();
+    this.listenRateEventFromServer();
     try {
       const { data } = await getRate();
       this.rate = data;
@@ -37,7 +37,7 @@ export default {
     this.sockets.unsubscribe('msgToClientForRate');
   },
   methods: {
-    listenEventsFromServer() {
+    listenRateEventFromServer() {
       this.sockets.subscribe('msgToClientForRate', (newRate) => {
         this.updateRate(newRate);
       });

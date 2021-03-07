@@ -30,7 +30,6 @@ export default {
   async created() {
     try {
       const accountId = this.$route.params.id;
-      console.log(this.$route.params.account);
       const { data } = await getAccountDetailsById(accountId);
       this.statements = data;
     } catch (err) {
