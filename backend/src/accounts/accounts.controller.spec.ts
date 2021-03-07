@@ -14,11 +14,19 @@ describe('AccountsController', () => {
     accountsController = app.get<AccountsController>(AccountsController);
   });
 
-  describe('getAccount', () => {
+  describe('getAccounts', () => {
     it('should return accounts', () => {
       const accounts = accountsController.getAccounts();
       expect(accounts).toBeDefined();
       expect(accounts.length).toBe(15);
+    });
+  });
+
+  describe('getAccountDetailsById', () => {
+    it('should return accounts', () => {
+      const accountDetails = accountsController.getAccountDetailsById(0);
+      expect(accountDetails).toBeDefined();
+      expect(accountDetails.length).toBe(5);
     });
   });
 });

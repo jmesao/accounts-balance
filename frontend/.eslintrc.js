@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
+    'plugin:vue/recommended',
     '@vue/airbnb',
   ],
   parserOptions: {
@@ -23,6 +23,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',
@@ -46,8 +47,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+        '**/src/**/*.spec.js',
       ],
       env: {
         jest: true,

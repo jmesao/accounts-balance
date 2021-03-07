@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
-/dist
+dist
 
 # local env files
 .env.local
@@ -15,7 +15,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Tests
-/coverage
+coverage
 /.nyc_output
 
 # Editor directories and files

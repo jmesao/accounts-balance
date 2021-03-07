@@ -1,17 +1,22 @@
 <template>
-<div class="header-container">
-  <div class="tw-grid">
-    <div class="tw-col-full">
-      <h2>Accounts</h2>
-      <slot></slot>
+  <div class="header-container">
+    <div class="tw-grid">
+      <div class="tw-col-full">
+        <h2>{{ title }}</h2>
+        <slot />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
-  name: 'header-container',
+  name: 'HeaderContainer',
+  props: {
+    title: {
+      type: String,
+    },
+  },
 };
 </script>
 

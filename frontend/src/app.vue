@@ -17,5 +17,6 @@ export default {
 </script>
 
 <style>
+@import './assets/styles/theme.css';
 @import './assets/styles/components/accounts-balance.css';
 </style>

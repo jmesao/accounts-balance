@@ -4,7 +4,7 @@
       <span class="top-bar__menu__icon material-icons">menu</span>
     </div>
     <div class="top-bar__balance">
-      <span class="top-bar__balance__symbol">฿</span> : $ 11,749.42
+      <span class="top-bar__balance__symbol">฿</span> : $ {{ rate }}
     </div>
     <div class="top-bar__notification">
       <span class="material-icons top-bar__notification__icon">notifications_none</span>
@@ -13,8 +13,41 @@
 </template>
 
 <script>
+import store from '../../store';
+import { getRate } from '../../services/rate';
+
 export default {
-  name: 'top-bar',
+  name: 'TopBar',
+  data() {
+    return {
+      rate: '-',
+    };
+  },
+  async created() {
+    this.listenRateEventFromServer();
+    try {
+      const { data } = await getRate();
+      this.rate = data;
+      store.commit('setRate', this.rate);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  beforeDestroy() {
+    this.sockets.unsubscribe('msgToClientForRate');
+  },
+  methods: {
+    listenRateEventFromServer() {
+      this.sockets.subscribe('msgToClientForRate', (newRate) => {
+        this.updateRate(newRate);
+      });
+    },
+
+    updateRate(rate) {
+      this.rate = rate;
+      store.commit('setRate', this.rate);
+    },
+  },
 };
 </script>
 
@@ -30,6 +63,7 @@ export default {
 
     &__icon {
       @apply tw-py-1 tw-px-4;
+      @apply tw-rounded-sm;
 
       background-color: #00b591;
       color: white;
@@ -42,9 +76,9 @@ export default {
     flex: 5 1 auto;
 
     &__symbol {
-      @apply tw-py-0 tw-px-4;
       @apply tw-rounded-1/2;
 
+      padding: 3px 8px;
       background-color: #8d96a2;
       color: white;
     }
