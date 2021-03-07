@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-container>
+    <header-container title="Accounts">
       <div>Home / <span class="tw-body-strong">Accounts</span></div>
     </header-container>
     <accounts-balance-table
@@ -36,7 +36,10 @@ export default {
   },
   methods: {
     showAccountDetails(event) {
-      console.log(event.data[0].id);
+      const name = 'account-details';
+      const account = event.data;
+      const { id } = account[0];
+      this.$router.push({ name, params: { id, account } });
     },
   },
 };

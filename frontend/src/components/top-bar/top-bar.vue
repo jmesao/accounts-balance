@@ -24,7 +24,7 @@ export default {
     };
   },
   async created() {
-    this.initializeRateSockets();
+    this.listenEventsFromServer();
     try {
       const { data } = await getRate();
       this.rate = data;
@@ -34,17 +34,13 @@ export default {
     }
   },
   beforeDestroy() {
-    global.clearInterval(this.rateInterval);
     this.sockets.unsubscribe('msgToClientForRate');
   },
   methods: {
-    initializeRateSockets() {
+    listenEventsFromServer() {
       this.sockets.subscribe('msgToClientForRate', (newRate) => {
         this.updateRate(newRate);
       });
-      this.rateInterval = global.setInterval(() => {
-        this.$socket.emit('msgToServerForRate');
-      }, 30000);
     },
 
     updateRate(rate) {

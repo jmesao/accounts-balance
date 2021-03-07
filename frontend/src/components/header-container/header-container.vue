@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="tw-grid">
       <div class="tw-col-full">
-        <h2>Accounts</h2>
+        <h2>{{ title }}</h2>
         <slot />
       </div>
     </div>
@@ -12,6 +12,11 @@
 <script>
 export default {
   name: 'HeaderContainer',
+  props: {
+    title: {
+      type: String,
+    },
+  },
 };
 </script>
 
