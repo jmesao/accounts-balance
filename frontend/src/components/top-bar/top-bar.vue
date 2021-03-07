@@ -63,6 +63,7 @@ export default {
 
     &__icon {
       @apply tw-py-1 tw-px-4;
+      @apply tw-rounded-sm;
 
       background-color: #00b591;
       color: white;
