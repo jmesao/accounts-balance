@@ -58,9 +58,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # Backend
 
-Configuration with the support of :
+Configuration with the support of nestjs-cli:
 - Eslint TypeScript and prettier
-- Jest as framework for testing with the support of the vue-cli-service
+- Jest
 
 ## Installation
 
