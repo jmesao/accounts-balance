@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AccountsGateway } from './accounts.gateway';
-import {AccountsService} from "./accounts.service";
+import { AccountsService } from './accounts.service';
 
 describe('AccountsGateway', () => {
   let gateway: AccountsGateway;

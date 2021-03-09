@@ -6,7 +6,7 @@ module.exports = {
     lintStyleOnBuild: true,
     stylelint: {
       files: [
-        './**/*.{vue,html,css}',
+        './src/**/*.{vue,html,css}',
       ],
     },
   },

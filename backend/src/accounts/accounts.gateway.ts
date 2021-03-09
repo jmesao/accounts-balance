@@ -3,10 +3,10 @@ import {
   OnGatewayDisconnect,
   OnGatewayInit,
   WebSocketGateway,
-  WebSocketServer
+  WebSocketServer,
 } from '@nestjs/websockets';
 import { Logger } from '@nestjs/common';
-import { Socket, Server } from 'socket.io';
+import { Socket } from 'socket.io';
 import { AccountsService } from './accounts.service';
 
 @WebSocketGateway()
@@ -17,7 +17,7 @@ export class AccountsGateway implements OnGatewayInit, OnGatewayConnection, OnGa
 
   private logger: Logger = new Logger('AccountsGateway');
 
-  afterInit(server: Server) {
+  afterInit() {
     this.logger.log('Initialized accounts gateway.');
     global.setInterval(() => {
       // Emit an event each 20 seconds updating the two first accounts and
