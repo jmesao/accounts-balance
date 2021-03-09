@@ -6,7 +6,7 @@ import VueSocketIO from 'vue-socket.io';
 import TopBar from './top-bar.vue';
 
 describe('TopBar', () => {
-  function mountTopBar(props, mutations = {}) {
+  function mountTopBar(props) {
     const localVue = createLocalVue();
     localVue.use(Vuex);
     localVue.use(new VueSocketIO({

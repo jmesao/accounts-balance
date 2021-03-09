@@ -16,20 +16,14 @@ describe('AppController (e2e)', () => {
   });
 
   it('/accounts (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/accounts')
-      .expect(200);
+    return request(app.getHttpServer()).get('/accounts').expect(200);
   });
 
   it('/accounts/:accountId (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/accounts/1')
-      .expect(200);
+    return request(app.getHttpServer()).get('/accounts/1').expect(200);
   });
 
   it('/rate (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/rate')
-      .expect(200);
+    return request(app.getHttpServer()).get('/rate').expect(200);
   });
 });

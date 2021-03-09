@@ -1,14 +1,17 @@
 import { Injectable } from '@nestjs/common';
 
-import { Account, AccountDetails } from '../interfaces/Account'
+import { Account, AccountDetails } from '../interfaces/Account';
 
-import { generateRandomBalance, generateRandomOrderId, generateRandomOrderCode } from '../helpers/random-characters'
+import {
+  generateRandomBalance,
+  generateRandomOrderId,
+  generateRandomOrderCode,
+} from '../helpers/random-characters';
 
 @Injectable()
 export class AccountsService {
-
-  getAccounts(maxAccounts=15): Account[] {
-    let accounts = [];
+  getAccounts(maxAccounts = 15): Account[] {
+    const accounts = [];
     for (let i = 0; i < maxAccounts; i++) {
       accounts.push({
         id: i,
@@ -16,7 +19,7 @@ export class AccountsService {
         category: 'affiliates',
         tags: 'test',
         balance: generateRandomBalance(),
-        available_balance: generateRandomBalance()
+        available_balance: generateRandomBalance(),
       });
     }
 
@@ -24,7 +27,7 @@ export class AccountsService {
   }
 
   getAccountById(id): AccountDetails[] {
-    let statements = [];
+    const statements = [];
     for (let i = 0; i < 5; i++) {
       statements.push({
         id: id,
@@ -35,7 +38,7 @@ export class AccountsService {
         transaction_type: 'Payment received',
         debit: 0,
         credit: generateRandomBalance(),
-        balance: generateRandomBalance()
+        balance: generateRandomBalance(),
       });
     }
 

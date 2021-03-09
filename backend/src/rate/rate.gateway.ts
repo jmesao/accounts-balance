@@ -3,11 +3,11 @@ import {
   OnGatewayDisconnect,
   OnGatewayInit,
   WebSocketGateway,
-  WebSocketServer
+  WebSocketServer,
 } from '@nestjs/websockets';
-import { Logger } from "@nestjs/common";
-import { Socket, Server } from "socket.io";
-import { RateService } from "./rate.service";
+import { Logger } from '@nestjs/common';
+import { Socket } from 'socket.io';
+import { RateService } from './rate.service';
 
 @WebSocketGateway()
 export class RateGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
@@ -17,7 +17,7 @@ export class RateGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
 
   private logger: Logger = new Logger('RateGateway');
 
-  afterInit(server: Server) {
+  afterInit() {
     this.logger.log('Initialized rate gateway.');
     global.setInterval(() => {
       // Emit an event each 30 seconds updating the rate
